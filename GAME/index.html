@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Fighting Game Ultimate</title>
+<link rel="stylesheet" type="text/css" href="style.css">
+
+
+</head>
+
+<body>
+
+<div id="loading-screen">
+  <video id="loading-video" autoplay muted playsinline>
+    <source src="assets/vid/intro.mp4" type="video/mp4">
+  </video>
+</div>
+
+<button id="openControlsBtn" >Controls</button>
+
+<!-- MODE SELECT -->
+<div id="pre" class="fullscreen">
+  <h1>PICK A GAME MODE</h1>
+  <div class="btndiv">
+    <button class="choices mode-single" onclick="setMode('single');closediv('pre','pl1')">
+      VS COMPUTER
+    </button>
+    <button class="choices mode-two" onclick="setMode('two');closediv('pre','pl1')">
+      2 PLAYER
+    </button>
+  </div>
+</div>
+
+<!-- PLAYER 1 -->
+<div id="pl1" class="fullscreen" style="display:none">
+  <h1>Select for player 1</h1>
+     <div class="char_prev" style="right: 20px;"></div>
+  <button class="choices mode-p1" 
+    data-bg="assets/img/multo_idle.png"
+    onclick="selectChar('multo');closediv('pl1','pl2')">
+    WHITE LADY
+  </button>
+
+  <button class="choices mode-p1" 
+    data-bg="assets/img/mananangal_idle.png"
+    onclick="selectChar('mananangal');closediv('pl1','pl2')">
+    MANANANGAL
+  </button>
+
+  <button class="choices mode-p1" 
+    data-bg="assets/img/vampire_idle.png"
+    onclick="selectChar('vampire');closediv('pl1','pl2')">
+    VAMPIRE
+  </button>
+</div>
+
+<!-- PLAYER 2 -->
+<div id="pl2" class="fullscreen" style="display:none">
+  <h1>Select for player 2</h1>
+   <div class="char_prev" style="right: 20px;"></div>
+  <button class="choices mode-p2" 
+    data-bg="assets/img/multo_idle.png"
+    onclick="selectChar2('multo');closediv('pl2')">
+    WHITE LADY
+  </button>
+
+  <button class="choices mode-p2" 
+    data-bg="assets/img/mananangal_idle.png"
+    onclick="selectChar2('mananangal');closediv('pl2')">
+    MANANANGAL
+  </button>
+
+  <button class="choices mode-p2" 
+    data-bg="assets/img/vampire_idle.png"
+    onclick="selectChar2('vampire');closediv('pl2')">
+    VAMPIRE
+  </button>
+</div>
+
+<canvas id="game" width="1000" height="500" style="display:none"></canvas>
+<!-- CONTROLS -->
+<div id="controlsDialog" class="dialog hidden">
+  <div class="dialogContent">
+    <button id="closeControlsBtn" class="closeBtn">✖</button>
+    <h2>Game Controls</h2>
+  <div class="player-controls">
+    <h3>Player 1</h3>
+    <ul>
+      <li><strong>Move Left:</strong> A</li>
+      <li><strong>Move Right:</strong> D</li>
+      <li><strong>Jump:</strong> W</li>
+      <li><strong>Block:</strong> B</li>
+      <li><strong>Punch:</strong> J</li>
+      <li><strong>Kick:</strong> K</li>
+      <li><strong>Shoot Projectile:</strong> P</li>
+      <li><strong>Ultimate:</strong> U</li>
+    </ul>
+  </div>
+
+  <div class="player-controls">
+    <h3>Player 2 (or Enemy in 2-player mode)</h3>
+    <ul>
+      <li><strong>Move Left:</strong> Arrow Left</li>
+      <li><strong>Move Right:</strong> Arrow Right</li>
+      <li><strong>Jump:</strong> Arrow Up</li>
+      <li><strong>Block:</strong> /</li>
+      <li><strong>Punch:</strong> . (dot)</li>
+      <li><strong>Kick:</strong> , (comma)</li>
+      <li><strong>Shoot Projectile:</strong> Shift</li>
+      <li><strong>Ultimate:</strong> Enter</li>
+    </ul>
+  </div>
+</div>
+
+
+
+<script src="assets/otherjs/display.js"></script>
+<script src="main.js"></script>
+
+</body>
+</html>
